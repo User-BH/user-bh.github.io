@@ -1,1084 +1,434 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Bafandeh - Resume</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #D4A853;
-            --gold-light: #F0D48A;
-            --gold-dark: #B8872E;
-            --turquoise: #1A8F8F;
-            --turquoise-light: #2BB5B5;
-            --turquoise-dark: #0E6B6B;
-            --navy: #0C1B33;
-            --navy-light: #142D54;
-            --navy-mid: #1A2744;
-            --cream: #FDF8F0;
-            --cream-dark: #F5EBD9;
-            --terracotta: #C75B39;
-            --terracotta-light: #E07A5A;
-            --text-dark: #1A1A2E;
-            --text-mid: #3D3D5C;
-            --text-light: #6B6B8A;
-            --text-on-dark: #F5F0E8;
-            --text-on-dark-muted: rgba(245, 240, 232, 0.7);
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --card-border: rgba(212, 168, 83, 0.25);
-            --shadow-sm: 0 2px 8px rgba(12, 27, 51, 0.06);
-            --shadow-md: 0 8px 30px rgba(12, 27, 51, 0.08);
-            --shadow-lg: 0 20px 60px rgba(12, 27, 51, 0.12);
-            --radius: 16px;
-            --radius-sm: 10px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
-            color: var(--text-dark);
-            min-height: 100vh;
-            overflow-x: hidden;
-            line-height: 1.7;
-        }
-
-        body.rtl {
-            direction: rtl;
-            font-family: 'Vazirmatn', 'DM Sans', sans-serif;
-        }
-
-        /* ─── Geometric Pattern Background ─── */
-        .pattern-bg {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.035;
-            background-image:
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23D4A853' stroke-width='0.5'/%3E%3Cpath d='M30 10L50 30L30 50L10 30Z' fill='none' stroke='%23D4A853' stroke-width='0.3'/%3E%3C/svg%3E");
-            background-size: 60px 60px;
-        }
-
-        .top-ornament {
-            position: fixed;
-            top: -200px; right: -200px;
-            width: 500px; height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .bottom-ornament {
-            position: fixed;
-            bottom: -200px; left: -200px;
-            width: 600px; height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(26,143,143,0.06) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* ─── Language Toggle ─── */
-        .lang-toggle {
-            position: fixed;
-            top: 24px; right: 24px;
-            z-index: 1000;
-            background: var(--navy);
-            border: 2px solid var(--gold);
-            padding: 10px 26px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--gold-light);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 20px rgba(12, 27, 51, 0.3);
-        }
-
-        .lang-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.3);
-            background: var(--gold);
-            color: var(--navy);
-        }
-
-        .rtl .lang-toggle { right: auto; left: 24px; }
-
-        /* ─── Container ─── */
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 24px 60px;
-        }
-
-        /* ─── Hero Section ─── */
-        .hero {
-            position: relative;
-            padding: 100px 24px 60px;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .hero-decoration {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 380px; height: 380px;
-            border: 1px solid rgba(212, 168, 83, 0.15);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: heroSpin 40s linear infinite;
-        }
-
-        .hero-decoration::before {
-            content: '';
-            position: absolute;
-            top: 20px; left: 20px; right: 20px; bottom: 20px;
-            border: 1px solid rgba(26, 143, 143, 0.12);
-            border-radius: 50%;
-        }
-
-        .hero-decoration::after {
-            content: '';
-            position: absolute;
-            top: -15px; left: 50%;
-            transform: translateX(-50%);
-            width: 8px; height: 8px;
-            background: var(--gold);
-            border-radius: 50%;
-            box-shadow: 0 0 12px rgba(212, 168, 83, 0.5);
-        }
-
-        @keyframes heroSpin {
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .hero-name {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
-            font-weight: 700;
-            color: var(--navy);
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.2s;
-        }
-
-        .rtl .hero-name {
-            font-family: 'Vazirmatn', serif;
-            letter-spacing: 0;
-        }
-
-        .hero-title {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--turquoise);
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.4s;
-        }
-
-        .hero-line {
-            width: 60px;
-            height: 3px;
-            margin: 20px auto 28px;
-            border-radius: 2px;
-            background: linear-gradient(90deg, var(--gold), var(--turquoise));
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.5s;
-        }
-
-        .contact-row {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.6s;
-        }
-
-        .contact-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: white;
-            border: 1px solid var(--card-border);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--text-mid);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .contact-chip:hover {
-            border-color: var(--gold);
-            box-shadow: 0 4px 16px rgba(212, 168, 83, 0.15);
-            transform: translateY(-2px);
-            color: var(--navy);
-        }
-
-        .contact-chip .icon {
-            width: 18px; height: 18px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.95rem;
-        }
-
-        /* ─── Animations ─── */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .rtl .anim-slide { animation-name: slideInRtl; }
-        @keyframes slideInRtl {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* ─── Sections ─── */
-        .section {
-            margin-bottom: 48px;
-            opacity: 0;
-            animation: fadeUp 0.7s ease forwards;
-        }
-
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.15s; }
-        .section:nth-child(3) { animation-delay: 0.2s; }
-        .section:nth-child(4) { animation-delay: 0.25s; }
-        .section:nth-child(5) { animation-delay: 0.3s; }
-        .section:nth-child(6) { animation-delay: 0.35s; }
-        .section:nth-child(7) { animation-delay: 0.4s; }
-        .section:nth-child(8) { animation-delay: 0.45s; }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .section-icon {
-            width: 44px; height: 44px;
-            display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
-            color: var(--gold-light);
-            border-radius: 12px;
-            font-size: 1.15rem;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(12, 27, 51, 0.2);
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--navy);
-            flex-shrink: 0;
-        }
-
-        .rtl .section-title {
-            font-family: 'Vazirmatn', serif;
-        }
-
-        .section-line {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--card-border), transparent);
-        }
-
-        .rtl .section-line {
-            background: linear-gradient(-90deg, var(--card-border), transparent);
-        }
-
-        /* ─── Summary ─── */
-        .summary-box {
-            position: relative;
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
-            border-radius: var(--radius);
-            padding: 36px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .summary-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image:
-                url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23D4A853' stroke-width='0.3'/%3E%3C/svg%3E");
-            background-size: 40px 40px;
-            opacity: 0.08;
-        }
-
-        .summary-box::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 4px; height: 100%;
-            background: linear-gradient(to bottom, var(--gold), var(--turquoise));
-            border-radius: 2px;
-        }
-
-        .rtl .summary-box::after {
-            left: auto; right: 0;
-        }
-
-        .summary-box p {
-            position: relative;
-            z-index: 1;
-            color: var(--text-on-dark);
-            font-size: 1.02rem;
-            line-height: 1.85;
-            font-weight: 300;
-        }
-
-        /* ─── Cards ─── */
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius);
-            padding: 28px;
-            margin-bottom: 16px;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-sm);
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 4px; height: 100%;
-            background: linear-gradient(to bottom, var(--gold), var(--turquoise));
-            border-radius: 2px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .rtl .card::before {
-            left: auto; right: 0;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            border-color: rgba(212, 168, 83, 0.4);
-        }
-
-        .card:hover::before { opacity: 1; }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
-        }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        .rtl .card-title {
-            font-family: 'Vazirmatn', serif;
-        }
-
-        .card-company {
-            color: var(--turquoise);
-            font-weight: 600;
-            font-size: 0.92rem;
-            margin-top: 4px;
-        }
-
-        .card-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--gold-dark);
-            background: linear-gradient(135deg, rgba(212,168,83,0.12), rgba(212,168,83,0.06));
-            border: 1px solid rgba(212, 168, 83, 0.25);
-            padding: 5px 14px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .card-description {
-            color: var(--text-mid);
-            font-size: 0.95rem;
-            margin-bottom: 14px;
-            line-height: 1.75;
-        }
-
-        .achievement-list {
-            list-style: none;
-        }
-
-        .achievement-list li {
-            position: relative;
-            padding: 8px 0 8px 28px;
-            color: var(--text-mid);
-            font-size: 0.92rem;
-            transition: color 0.3s ease;
-        }
-
-        .rtl .achievement-list li {
-            padding-left: 0;
-            padding-right: 28px;
-        }
-
-        .achievement-list li::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 16px;
-            width: 8px; height: 8px;
-            border: 2px solid var(--gold);
-            border-radius: 2px;
-            transform: rotate(45deg);
-            transition: all 0.3s ease;
-        }
-
-        .rtl .achievement-list li::before {
-            left: auto; right: 0;
-        }
-
-        .achievement-list li:hover {
-            color: var(--navy);
-        }
-
-        .achievement-list li:hover::before {
-            background: var(--gold);
-            box-shadow: 0 0 8px rgba(212, 168, 83, 0.4);
-        }
-
-        /* ─── Skills ─── */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-item {
-            background: white;
-            border: 1px solid var(--card-border);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--navy);
-            transition: all 0.3s ease;
-            cursor: default;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 100%; height: 0;
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
-            transition: height 0.3s ease;
-            z-index: -1;
-        }
-
-        .skill-item:hover {
-            color: var(--gold-light);
-            border-color: var(--navy);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(12, 27, 51, 0.15);
-        }
-
-        .skill-item:hover::after {
-            height: 100%;
-        }
-
-        /* ─── Certifications ─── */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 14px;
-        }
-
-        .cert-item {
-            background: white;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-sm);
-            padding: 22px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cert-item::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--turquoise));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .rtl .cert-item::before {
-            transform-origin: right;
-        }
-
-        .cert-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            border-color: rgba(212, 168, 83, 0.4);
-        }
-
-        .cert-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .cert-item .cert-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px; height: 36px;
-            background: linear-gradient(135deg, rgba(212,168,83,0.15), rgba(26,143,143,0.1));
-            border-radius: 8px;
-            margin-bottom: 12px;
-            font-size: 1rem;
-        }
-
-        .cert-item strong {
-            display: block;
-            color: var(--navy);
-            font-size: 0.95rem;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .cert-item p {
-            color: var(--text-light);
-            font-size: 0.85rem;
-        }
-
-        /* ─── Languages ─── */
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .language-card {
-            background: white;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-sm);
-            padding: 24px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .language-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 0; height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--turquoise));
-            border-radius: 2px;
-            transition: width 0.4s ease;
-        }
-
-        .language-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .language-card:hover::after {
-            width: 60%;
-        }
-
-        .language-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 6px;
-        }
-
-        .rtl .language-name {
-            font-family: 'Vazirmatn', serif;
-        }
-
-        .language-level {
-            color: var(--text-light);
-            font-size: 0.82rem;
-        }
-
-        /* ─── Interests ─── */
-        .interests-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .interest-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 10px 22px;
-            border: 1px solid var(--turquoise);
-            color: var(--turquoise);
-            border-radius: 50px;
-            font-size: 0.88rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .interest-tag:hover {
-            background: var(--turquoise);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(26, 143, 143, 0.25);
-        }
-
-        /* ─── Footer ─── */
-        .footer {
-            text-align: center;
-            padding: 40px 24px;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            display: block;
-            width: 60px; height: 1px;
-            background: linear-gradient(90deg, var(--gold), var(--turquoise));
-            margin: 0 auto 20px;
-        }
-
-        .footer a { color: var(--turquoise); text-decoration: none; }
-
-        /* ─── Scrollbar ─── */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--cream); }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--gold), var(--turquoise));
-            border-radius: 3px;
-        }
-
-        /* ─── Print Button ─── */
-        .print-btn {
-            position: fixed;
-            bottom: 24px; right: 24px;
-            z-index: 1000;
-            width: 48px; height: 48px;
-            border-radius: 50%;
-            background: var(--navy);
-            border: 2px solid var(--gold);
-            color: var(--gold-light);
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 20px rgba(12, 27, 51, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .print-btn:hover {
-            background: var(--gold);
-            color: var(--navy);
-            transform: translateY(-2px);
-        }
-
-        .rtl .print-btn { right: auto; left: 24px; }
-
-        /* ─── Responsive ─── */
-        @media (max-width: 768px) {
-            .hero { padding: 80px 16px 40px; }
-            .hero-name { font-size: 2.4rem; }
-            .hero-decoration { width: 280px; height: 280px; }
-
-            .container { padding: 0 16px 40px; }
-
-            .contact-row { gap: 8px; }
-            .contact-chip { padding: 8px 14px; font-size: 0.8rem; }
-
-            .section-header { gap: 10px; }
-            .section-icon { width: 38px; height: 38px; font-size: 1rem; }
-            .section-title { font-size: 1.3rem; }
-
-            .card { padding: 20px; }
-            .card-header { flex-direction: column; }
-            .card-title { font-size: 1.05rem; }
-
-            .summary-box { padding: 24px; }
-            .summary-box p { font-size: 0.92rem; }
-
-            .cert-grid { grid-template-columns: 1fr; }
-
-            .languages-grid { grid-template-columns: 1fr; }
-
-            .lang-toggle { top: 16px; right: 16px; padding: 8px 18px; font-size: 0.8rem; }
-            .rtl .lang-toggle { right: auto; left: 16px; }
-
-            .print-btn { bottom: 16px; right: 16px; width: 42px; height: 42px; }
-            .rtl .print-btn { right: auto; left: 16px; }
-
-            .skill-item { padding: 8px 14px; font-size: 0.78rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-name { font-size: 2rem; }
-            .hero-decoration { width: 220px; height: 220px; }
-            .contact-chip { padding: 7px 12px; font-size: 0.75rem; gap: 5px; }
-            .section-title { font-size: 1.15rem; }
-            .card-title { font-size: 0.98rem; }
-        }
-
-        /* ─── Print ─── */
-        @media print {
-            .lang-toggle, .print-btn, .pattern-bg,
-            .top-ornament, .bottom-ornament, .hero-decoration { display: none !important; }
-            body { background: white; }
-            .summary-box { box-shadow: none; border: 1px solid #ddd; }
-            .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
-            .section { break-inside: avoid; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>علی بافنده | رزومه</title>
+<meta name="description" content="رزومه‌ی علی بافنده، مهندس نرم‌افزار و شبکه و کارشناس فناوری اطلاعات. Ali Bafandeh, Software & Network Engineer, IT Specialist.">
+<meta name="author" content="Ali Bafandeh">
+<meta name="theme-color" content="#2A3320">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="علی بافنده | Ali Bafandeh">
+<meta property="og:description" content="مهندس نرم‌افزار و شبکه، کارشناس فناوری اطلاعات">
+<meta property="og:image" content="https://user-bh.github.io/assets/img/portrait.jpg">
+<meta property="og:url" content="https://user-bh.github.io/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/vazirmatn-arabic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/lalezar-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/portrait-cut.webp" as="image">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+  /* Choose language before first paint: ?lang= wins, then the saved choice, then Persian. */
+  (function () {
+    var lang = 'fa';
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      var saved = localStorage.getItem('resume-lang');
+      if (q === 'en' || q === 'fa') lang = q; else if (saved === 'en' || saved === 'fa') lang = saved;
+    } catch (e) {}
+    var h = document.documentElement;
+    h.lang = lang; h.dir = lang === 'fa' ? 'rtl' : 'ltr';
+    if (lang === 'en') document.title = 'Ali Bafandeh | Resume';
+    h.classList.add('js');
+  })();
+</script>
 </head>
 <body>
-    <!-- Decorative Elements -->
-    <div class="pattern-bg"></div>
-    <div class="top-ornament"></div>
-    <div class="bottom-ornament"></div>
 
-    <!-- Language Toggle -->
-    <div class="lang-toggle" onclick="toggleLanguage()" role="button" tabindex="0" aria-label="Toggle Language">
-        <span class="en">فارسی 🇮🇷</span>
-        <span class="fa" style="display:none;">English 🇬🇧</span>
+<a class="skip" href="#main"><span lang="fa">پرش به محتوا</span><span lang="en">Skip to content</span></a>
+
+<nav class="topbar" aria-label="Page tools">
+  <div class="topbar-inner">
+    <a class="mark" href="#top" aria-label="Ali Bafandeh">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="currentColor"/><circle cx="16" cy="16" r="5.5" fill="#C49A45"/><circle cx="16" cy="16" r="11" fill="none" stroke="#C49A45" stroke-width="1.2" stroke-dasharray="2 3"/></svg>
+      <span lang="fa">علی بافنده</span><span lang="en">Ali Bafandeh</span>
+    </a>
+    <div class="tools">
+      <div class="lang-switch" role="group" aria-label="Language / زبان">
+        <button type="button" data-set-lang="fa" lang="fa">فارسی</button>
+        <button type="button" data-set-lang="en" lang="en">English</button>
+      </div>
+      <button type="button" class="btn-print" data-print>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <span lang="fa">نسخه‌ی PDF</span><span lang="en">PDF version</span>
+      </button>
     </div>
+  </div>
+</nav>
 
-    <!-- Print Button -->
-    <button class="print-btn" onclick="window.print()" title="Print / PDF" aria-label="Print Resume">🖨</button>
+<header class="hero" id="top">
+  <div class="hero-text">
+    <h1 class="name">
+      <span lang="fa">علی بافنده</span><span lang="en">Ali Bafandeh</span>
+    </h1>
+    <p class="role">
+      <span lang="fa" data-type>مهندس نرم‌افزار و شبکه</span><span lang="en" data-type>Software &amp; Network Engineer</span>
+    </p>
+    <p class="now">
+      <span class="pulse" aria-hidden="true"></span>
+      <span lang="fa">کارشناس فناوری اطلاعات در شرکت پخش تأمین کالا باختر</span>
+      <span lang="en">IT Specialist at Tamin Kala Bakhtar Distribution Co.</span>
+    </p>
+    <ul class="contact">
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <a href="mailto:alibh0210@gmail.com" dir="ltr">alibh0210@gmail.com</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v18H8z M11 18h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <a href="tel:+989143253260" dir="ltr"><span lang="fa">۰۹۱۴ ۳۲۵ ۳۲۶۰</span><span lang="en">+98 914 325 3260</span></a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="currentColor"/></svg>
+        <span lang="fa">تبریز، شهر جدید سهند</span><span lang="en">Sahand, Tabriz, Iran</span>
+      </li>
+    </ul>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#award">
+        <span lang="fa">رتبه‌ی اول مسابقه‌ی ملی</span><span lang="en">National 1st place</span>
+      </a>
+      <a class="btn btn-line" href="#experience">
+        <span lang="fa">سوابق کاری</span><span lang="en">Work experience</span>
+      </a>
+    </div>
+  </div>
 
-    <!-- Hero -->
-    <header class="hero">
-        <div class="hero-decoration"></div>
-        <h1 class="hero-name" data-en="Ali Bafandeh" data-fa="علی بافنده" data-text="Ali Bafandeh">Ali Bafandeh</h1>
-        <div class="hero-title" data-en="Software & Network Engineer" data-fa="مهندس نرم‌افزار و شبکه">Software & Network Engineer</div>
-        <div class="hero-line"></div>
-        <div class="contact-row">
-            <div class="contact-chip">
-                <span class="icon">📧</span>
-                <span>alibh0210@gmail.com</span>
-            </div>
-            <div class="contact-chip">
-                <span class="icon">📱</span>
-                <span dir="ltr">09143253260</span>
-            </div>
-            <div class="contact-chip">
-                <span class="icon">📍</span>
-                <span data-en="Tabriz-Sahand, Iran" data-fa="تبریز-سهند، ایران">Tabriz-Sahand, Iran</span>
-            </div>
+  <div class="stage" aria-hidden="true">
+    <svg class="net" viewBox="0 0 680 680">
+      <circle class="orbit" cx="340" cy="370" r="272"/>
+      <g class="links">
+        <line class="lk" x1="104" y1="555" x2="59" y2="450"/>
+        <line class="lk" x1="59" y1="450" x2="58" y2="267"/>
+        <line class="lk" x1="58" y1="267" x2="51" y2="203"/>
+        <line class="lk" x1="51" y1="203" x2="141" y2="171"/>
+        <line class="lk" x1="141" y1="171" x2="223" y2="81"/>
+        <line class="lk" x1="223" y1="81" x2="433" y2="85"/>
+        <line class="lk" x1="433" y1="85" x2="544" y2="166"/>
+        <line class="lk" x1="544" y1="166" x2="631" y2="275"/>
+        <line class="lk" x1="631" y1="275" x2="626" y2="431"/>
+        <line class="lk" x1="626" y1="431" x2="576" y2="555"/>
+        <line class="lk" x1="223" y1="81" x2="544" y2="166"/>
+        <line class="lk" x1="141" y1="171" x2="433" y2="85"/>
+        <line class="lk" x1="58" y1="267" x2="141" y2="171"/>
+        <line class="lk" x1="51" y1="203" x2="223" y2="81"/>
+        <line class="lk" x1="59" y1="450" x2="51" y2="203"/>
+        <line class="lk" x1="631" y1="275" x2="576" y2="555"/>
+      </g>
+      <g class="packets">
+        <circle class="pk" r="4" data-from="141,171" data-to="223,81"/>
+        <circle class="pk" r="4" data-from="544,166" data-to="631,275"/>
+        <circle class="pk" r="4" data-from="59,450" data-to="104,555"/>
+        <circle class="pk" r="4" data-from="223,81" data-to="544,166"/>
+      </g>
+      <g class="nodes">
+        <circle class="nd" cx="58" cy="267" r="6"/>
+        <circle class="nd" cx="141" cy="171" r="6"/>
+        <circle class="nd" cx="223" cy="81" r="7"/>
+        <circle class="nd hub" cx="433" cy="85" r="10"/>
+        <circle class="nd" cx="544" cy="166" r="6"/>
+        <circle class="nd" cx="631" cy="275" r="7"/>
+        <circle class="nd" cx="626" cy="431" r="6"/>
+        <circle class="nd hub" cx="59" cy="450" r="10"/>
+        <circle class="nd" cx="576" cy="555" r="6"/>
+        <circle class="nd" cx="51" cy="203" r="5"/>
+        <circle class="nd" cx="104" cy="555" r="6"/>
+      </g>
+      <g class="tags">
+        <text x="223" y="58" text-anchor="middle">MikroTik</text>
+        <text x="433" y="56" text-anchor="middle">Linux</text>
+        <text x="631" y="252" text-anchor="middle">Docker</text>
+        <text x="40" y="430" text-anchor="end">PHP</text>
+        <text x="592" y="590" text-anchor="middle">Python</text>
+      </g>
+    </svg>
+    <div class="disc"></div>
+    <div class="p-layer p-circle"><img src="assets/img/portrait-cut.webp" alt="" width="900" height="1044"></div>
+    <div class="p-layer p-top"><img src="assets/img/portrait-cut.webp" alt="" width="900" height="1044"></div>
+  </div>
+  <img class="print-photo" src="assets/img/portrait.jpg" alt="" width="600" height="750">
+</header>
+
+<main id="main">
+
+  <!-- About -->
+  <section class="about" id="about" aria-labelledby="h-about">
+    <div class="about-copy">
+      <h2 id="h-about"><span lang="fa">درباره‌ی من</span><span lang="en">About me</span></h2>
+      <p lang="fa" class="lead">
+        مهندس نرم‌افزار و شبکه با بیش از ۷ سال تجربه‌ی عملی در توسعه‌ی وب و بک‌اند با PHP، مدیریت سرورهای لینوکس و زیرساخت شبکه.
+        در حال حاضر کارشناس فناوری اطلاعات یک شرکت پخش مویرگی هستم و نرم‌افزار مالی، سامانه‌های مالیاتی و تجاری و سامانه‌ی ردیابی ناوگان را پشتیبانی می‌کنم.
+        بنیان‌گذار NitroPanel و برنده‌ی رتبه‌ی اول سومین دوره‌ی مسابقه‌ی ملی مسئله‌محور «راهی شو» با پروژه‌ی پارکینگ هوشمند مبتنی بر هوش مصنوعی و اینترنت اشیا.
+        علاقه‌مند به سیستم‌های توزیع‌شده و DevOps، و در حال تعمیق مهارت‌هایم در Python.
+      </p>
+      <p lang="en" class="lead">
+        Software and network engineer with 7+ years of hands-on experience in PHP web and backend development, Linux server administration and network infrastructure.
+        Currently the IT specialist at an FMCG distribution company, supporting its accounting software, national tax and trade platforms, and fleet-tracking GIS.
+        Founder of NitroPanel and winner of 1st place in the 3rd national problem-based competition “Rahi Sho” with an AI and IoT smart-parking project.
+        Interested in distributed systems and DevOps, and deepening my Python skills.
+      </p>
+      <dl class="facts">
+        <div>
+          <dt><span lang="fa">آخرین مدرک</span><span lang="en">Highest degree</span></dt>
+          <dd><span lang="fa">کارشناسی ارشد IT و شبکه‌های کامپیوتری</span><span lang="en">M.Sc. in IT &amp; Computer Networks</span></dd>
         </div>
-    </header>
-
-    <main class="container">
-        <!-- Summary -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">📋</div>
-                <h2 class="section-title" data-en="Professional Summary" data-fa="خلاصه تخصصی">Professional Summary</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="summary-box">
-                <p data-en="Software Engineer and Network Specialist with 7+ years of hands-on experience in web development, PHP programming, backend architecture, and Linux server administration. Manager and Lead Developer at NitroPanel, delivering automated platforms and scalable backend solutions. Currently working as a Network Support Engineer, contributing to secure communication services and private network infrastructure. Strong interest in distributed systems and DevOps, currently expanding skills in Python." data-fa="مهندس نرم‌افزار و متخصص شبکه با بیش از ۷ سال تجربه عملی در توسعه وب، برنامه‌نویسی PHP، معماری بک‌اند و مدیریت سرورهای لینوکس. مدیر و توسعه‌دهنده ارشد در NitroPanel با ارائه پلتفرم‌های خودکار و راهکارهای بک‌اند مقیاس‌پذیر. در حال حاضر به عنوان مهندس پشتیبانی شبکه مشغول به کار و مشارکت در خدمات ارتباطات امن و زیرساخت شبکه خصوصی. علاقه‌مند به سیستم‌های توزیع‌شده و DevOps و در حال توسعه مهارت‌ها در Python.">Software Engineer and Network Specialist with 7+ years of hands-on experience in web development, PHP programming, backend architecture, and Linux server administration. Manager and Lead Developer at NitroPanel, delivering automated platforms and scalable backend solutions. Currently working as a Network Support Engineer, contributing to secure communication services and private network infrastructure. Strong interest in distributed systems and DevOps, currently expanding skills in Python.</p>
-            </div>
+        <div>
+          <dt><span lang="fa">محل سکونت</span><span lang="en">Location</span></dt>
+          <dd><span lang="fa">تبریز، سهند</span><span lang="en">Sahand, Tabriz</span></dd>
         </div>
-
-        <!-- Work Experience -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">💼</div>
-                <h2 class="section-title" data-en="Work Experience" data-fa="تجربه کاری">Work Experience</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title" data-en="Network Technician" data-fa="تکنسین شبکه">Network Technician</div>
-                    </div>
-                    <div class="card-date" data-en="Oct 2022 - Present" data-fa="مهر ۱۴۰۱ - اکنون">Oct 2022 - Present</div>
-                </div>
-                <p class="card-description" data-en="Contributing to the design and maintenance of secure communication services and private network infrastructures" data-fa="مشارکت در طراحی و نگهداری خدمات ارتباطات امن و زیرساخت‌های شبکه خصوصی">Contributing to the design and maintenance of secure communication services and private network infrastructures</p>
-                <ul class="achievement-list">
-                    <li data-en="Managed servers and deployed secure private network tunnels" data-fa="مدیریت سرورها و استقرار تونل‌های امن شبکه خصوصی">Managed servers and deployed secure private network tunnels</li>
-                    <li data-en="Optimized routing policies for improved network performance" data-fa="بهینه‌سازی سیاست‌های مسیریابی برای بهبود عملکرد شبکه">Optimized routing policies for improved network performance</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title" data-en="Founder & Manager" data-fa="بنیانگذار و مدیر">Founder & Manager</div>
-                        <div class="card-company">NitroPanel</div>
-                    </div>
-                    <div class="card-date" data-en="Jun 2017 - Present" data-fa="خرداد ۱۳۹۶ - اکنون">Jun 2017 - Present</div>
-                </div>
-                <p class="card-description" data-en="Launched an online platform for selling Instagram and Telegram services" data-fa="راه‌اندازی یک پلتفرم آنلاین برای فروش خدمات اینستاگرام و تلگرام">Launched an online platform for selling Instagram and Telegram services</p>
-                <ul class="achievement-list">
-                    <li data-en="Developed and managed automated Telegram bots, reducing manual workload by 70%" data-fa="توسعه و مدیریت ربات‌های خودکار تلگرام با کاهش ۷۰٪ حجم کار دستی">Developed and managed automated Telegram bots, reducing manual workload by 70%</li>
-                    <li data-en="Built a scalable website using PHP and WordPress" data-fa="ساخت وب‌سایت مقیاس‌پذیر با استفاده از PHP و WordPress">Built a scalable website using PHP and WordPress</li>
-                    <li data-en="Increased engagement rates by 30% through bot automation" data-fa="افزایش ۳۰٪ نرخ تعامل از طریق اتوماسیون ربات">Increased engagement rates by 30% through bot automation</li>
-                    <li data-en="Improved response time by 50%" data-fa="بهبود ۵۰٪ زمان پاسخ‌دهی">Improved response time by 50%</li>
-                </ul>
-            </div>
+        <div lang="fa">
+          <dt>وضعیت نظام وظیفه</dt>
+          <dd>معافیت پزشکی</dd>
         </div>
-
-        <!-- Personal Projects -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🚀</div>
-                <h2 class="section-title" data-en="Personal Projects" data-fa="پروژه‌های شخصی">Personal Projects</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title" data-en="Developing Authentication for Prometheus" data-fa="توسعه احراز هویت برای Prometheus">Developing Authentication for Prometheus</div>
-                    </div>
-                    <div class="card-date" data-en="Sep 2025 - Nov 2025" data-fa="شهریور ۱۴۰۴ - آبان ۱۴۰۴">Sep 2025 - Nov 2025</div>
-                </div>
-                <p class="card-description" data-en="Dr. Ardeshir Hosseinpour Research Center Project on behalf of the Vice for Research, Science, and Technology" data-fa="پروژه مرکز تحقیقات دکتر اردشیر حسین‌پور از طرف معاونت پژوهش، علم و فناوری">Dr. Ardeshir Hosseinpour Research Center Project on behalf of the Vice for Research, Science, and Technology</p>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title" data-en="Feasibility Study for Prometheus Authentication" data-fa="مطالعه امکان‌سنجی احراز هویت Prometheus">Feasibility Study for Prometheus Authentication</div>
-                    </div>
-                    <div class="card-date" data-en="May 2025 - Jul 2025" data-fa="اردیبهشت ۱۴۰۴ - تیر ۱۴۰۴">May 2025 - Jul 2025</div>
-                </div>
-                <p class="card-description" data-en="Dr. Ardeshir Hosseinpour Research Center Project on behalf of the Vice for Research, Science, and Technology" data-fa="پروژه مرکز تحقیقات دکتر اردشیر حسین‌پور از طرف معاونت پژوهش، علم و فناوری">Dr. Ardeshir Hosseinpour Research Center Project on behalf of the Vice for Research, Science, and Technology</p>
-            </div>
+        <div>
+          <dt><span lang="fa">زبان‌ها</span><span lang="en">Languages</span></dt>
+          <dd><span lang="fa">آذری و فارسی (بومی)، انگلیسی (متوسط)</span><span lang="en">Azeri &amp; Persian (native), English (working)</span></dd>
         </div>
+      </dl>
+    </div>
+    <figure class="about-figure" aria-hidden="true">
+      <div class="backdrop"></div>
+      <img src="assets/img/fullbody-cut.webp" alt="" width="411" height="1275" loading="lazy">
+      <div class="floor"></div>
+    </figure>
+  </section>
 
-        <!-- Education -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🎓</div>
-                <h2 class="section-title" data-en="Education" data-fa="تحصیلات">Education</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title" data-en="Master's in IT & Computer Networks" data-fa="کارشناسی ارشد IT و شبکه‌های کامپیوتری">Master's in IT & Computer Networks</div>
-                        <div class="card-company" data-en="Islamic Azad University, Tabriz" data-fa="دانشگاه آزاد اسلامی، تبریز">Islamic Azad University, Tabriz</div>
-                    </div>
-                    <div class="card-date" data-en="Sep 2023 - Sep 2025" data-fa="شهریور ۱۴۰۲ - شهریور ۱۴۰۴">Sep 2023 - Sep 2025</div>
-                </div>
-                <p class="card-description" data-en="GPA: 16.85/20 | Thesis: Improving Accuracy in Heart Disease Diagnosis Using Machine Learning Techniques and Feature Engineering" data-fa="معدل: ۱۶.۸۵ از ۲۰ | پایان‌نامه: بهبود دقت در تشخیص بیماری قلبی با استفاده از تکنیک‌های یادگیری ماشین و مهندسی ویژگی">GPA: 16.85/20 | Thesis: Improving Accuracy in Heart Disease Diagnosis Using Machine Learning Techniques and Feature Engineering</p>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title" data-en="Bachelor's in Computer Engineering" data-fa="کارشناسی مهندسی کامپیوتر">Bachelor's in Computer Engineering</div>
-                        <div class="card-company" data-en="Islamic Azad University, Osku" data-fa="دانشگاه آزاد اسلامی، اسکو">Islamic Azad University, Osku</div>
-                    </div>
-                    <div class="card-date" data-en="Sep 2019 - Feb 2023" data-fa="شهریور ۱۳۹۸ - بهمن ۱۴۰۱">Sep 2019 - Feb 2023</div>
-                </div>
-                <p class="card-description" data-en="GPA: 17.67/20" data-fa="معدل: ۱۷.۶۷ از ۲۰">GPA: 17.67/20</p>
-            </div>
+  <!-- Award -->
+  <section class="award" id="award" aria-labelledby="h-award">
+    <div class="award-inner">
+      <div class="award-copy">
+        <div class="medal" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <circle class="m-ring" cx="60" cy="60" r="54"/>
+            <circle class="m-face" cx="60" cy="60" r="44"/>
+            <circle class="m-dash" cx="60" cy="60" r="37"/>
+            <text class="m-num" x="60" y="80" text-anchor="middle" lang="fa">۱</text>
+            <text class="m-num" x="60" y="80" text-anchor="middle" lang="en">1</text>
+          </svg>
+          <span class="shine"></span>
         </div>
+        <h2 id="h-award">
+          <span lang="fa">رتبه‌ی اول کشوری</span><span lang="en">National 1st Place</span>
+        </h2>
+        <p class="award-event">
+          <span lang="fa">سومین دوره‌ی مسابقه‌ی ملی و مسئله‌محور «راهی&nbsp;شو»</span>
+          <span lang="en">3rd National Problem-Based Competition “Rahi&nbsp;Sho”</span>
+        </p>
+        <p lang="fa" class="award-desc">
+          طراحی و توسعه‌ی <strong>اپلیکیشن پارکینگ هوشمند</strong> با الگوریتم‌های هوش مصنوعی و سنسورهای IoT، برای رزرو جای پارک و راهنمایی میهمانان به نزدیک‌ترین فضای خالی در محوطه؛ به‌عنوان عضو گروه پژوهشی «اوروس».
+        </p>
+        <p lang="en" class="award-desc">
+          Designed and built a <strong>smart parking app</strong> that uses AI algorithms and IoT sensors to let guests reserve a space and guides them to the nearest free spot on site, as a member of the “Urus” research team.
+        </p>
+        <dl class="award-meta">
+          <div>
+            <dt><span lang="fa">مدت پروژه</span><span lang="en">Project period</span></dt>
+            <dd><span lang="fa">آذر ۱۴۰۴ تا خرداد ۱۴۰۵ (۷ ماه)</span><span lang="en">Dec 2025 – Jun 2026 (7 months)</span></dd>
+          </div>
+          <div>
+            <dt><span lang="fa">برگزارکننده</span><span lang="en">Organizer</span></dt>
+            <dd><span lang="fa">مؤسسه‌ی تحقیق و توسعه‌ی دانشمند، با حمایت وزارت علوم، تحقیقات و فناوری</span><span lang="en">Daneshmand R&amp;D Institute, with the Ministry of Science, Research and Technology</span></dd>
+          </div>
+          <div>
+            <dt><span lang="fa">تقدیرنامه</span><span lang="en">Certificate</span></dt>
+            <dd><span lang="fa">۷ مهر ۱۴۰۵، همراه با تندیس</span><span lang="en">Sep 29, 2026, with trophy</span></dd>
+          </div>
+        </dl>
+      </div>
 
-        <!-- Skills -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">⚡</div>
-                <h2 class="section-title" data-en="Technical Skills" data-fa="مهارت‌های فنی">Technical Skills</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-item">PHP</div>
-                <div class="skill-item">Python</div>
-                <div class="skill-item">MySQL</div>
-                <div class="skill-item">RESTful APIs</div>
-                <div class="skill-item" data-en="Routing" data-fa="مسیریابی">Routing</div>
-                <div class="skill-item" data-en="Firewall" data-fa="فایروال">Firewall</div>
-                <div class="skill-item" data-en="Network" data-fa="شبکه">Network</div>
-                <div class="skill-item" data-en="Cybersecurity" data-fa="امنیت سایبری">Cybersecurity</div>
-                <div class="skill-item">Ubuntu</div>
-                <div class="skill-item">Linux</div>
-                <div class="skill-item">KVM</div>
-                <div class="skill-item">VMware</div>
-                <div class="skill-item">Docker</div>
-                <div class="skill-item" data-en="Virtualization" data-fa="مجازی‌سازی">Virtualization</div>
-                <div class="skill-item">Mikrotik</div>
-                <div class="skill-item" data-en="Backend" data-fa="بک‌اند">Backend</div>
-                <div class="skill-item">DevOps</div>
-            </div>
+      <div class="award-media">
+        <button type="button" class="shot shot-photo" data-zoom="assets/img/award-photo.webp" data-w="900" data-h="1200">
+          <img src="assets/img/award-photo.webp" alt="" width="900" height="1200" loading="lazy">
+          <span class="sr" lang="fa">بزرگ‌نمایی عکس تندیس و تقدیرنامه</span><span class="sr" lang="en">Enlarge photo of the trophy and certificate</span>
+        </button>
+        <button type="button" class="shot shot-cert" data-zoom="assets/img/certificate.webp" data-w="1384" data-h="1030">
+          <img src="assets/img/certificate.webp" alt="" width="1384" height="1030" loading="lazy">
+          <span class="sr" lang="fa">بزرگ‌نمایی تقدیرنامه</span><span class="sr" lang="en">Enlarge the certificate</span>
+        </button>
+        <p class="media-hint"><span lang="fa">برای دیدن تقدیرنامه، روی تصویر بزنید</span><span lang="en">Tap an image to view it full size</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="experience" id="experience" aria-labelledby="h-exp">
+    <h2 id="h-exp"><span lang="fa">سوابق کاری</span><span lang="en">Work experience</span></h2>
+    <ol class="timeline">
+      <li class="tl-progress" aria-hidden="true"></li>
+
+      <li class="job is-current">
+        <div class="job-head">
+          <h3><span lang="fa">کارشناس فناوری اطلاعات</span><span lang="en">IT Specialist</span></h3>
+          <p class="when"><span lang="fa">مرداد ۱۴۰۵ تا اکنون</span><span lang="en">Aug 2026 – Present</span></p>
         </div>
+        <p class="org">
+          <span lang="fa">شرکت تأمین کالا باختر (خصوصی)</span><span lang="en">Tamin Kala Bakhtar Co. (private)</span>
+        </p>
+        <p class="org-note">
+          <span lang="fa">پخش مویرگی مواد غذایی، شوینده و بهداشتی</span><span lang="en">Distribution of food, detergent and hygiene products (FMCG)</span>
+        </p>
+        <ul lang="fa">
+          <li>پشتیبانی نرم‌افزار مالی و حسابداری <strong>کارآمد سیستم</strong>: هماهنگی با شرکت ارائه‌دهنده برای اعمال به‌روزرسانی‌ها، و ثبت و پیگیری تیکت‌های فنی تا رفع کامل مشکل از طریق اتصال راه‌دور به سرور</li>
+          <li>عیب‌یابی و رفع مشکل <strong>سامانه‌ی GIS</strong> ردیابی موقعیت خودروهای توزیع و ویزیتورهای فروش</li>
+          <li>ارسال صورتحساب‌های فروش به <strong>سامانه‌ی مؤدیان</strong>، <strong>سامانه‌ی جامع تجارت</strong> و <strong>سامانه‌ی جامع انبارها</strong>؛ بررسی صحت صورتحساب‌های خرید از تأمین‌کنندگان و تأیید آن‌ها در همین سامانه‌ها</li>
+          <li>بازطراحی <strong>قالب چاپ فاکتور فروش</strong> برای خوانایی و کاربری بهتر</li>
+        </ul>
+        <ul lang="en">
+          <li>Support the <strong>Karamad System</strong> accounting software: coordinate version updates with the vendor, and file and follow up support tickets until issues are fixed over remote server sessions</li>
+          <li>Diagnosed and fixed the <strong>GIS tracking system</strong> for delivery vehicles and field sales reps</li>
+          <li>Submit sales invoices to Iran’s national <strong>e-invoicing (Moadian) system</strong>, the <strong>Comprehensive Trade System</strong> and the <strong>Comprehensive Warehouse System</strong>; verify suppliers’ purchase invoices and approve them on the same platforms</li>
+          <li>Redesigned the <strong>sales invoice print layout</strong> to make invoices clearer and easier to use</li>
+        </ul>
+      </li>
 
-        <!-- Certifications -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🏆</div>
-                <h2 class="section-title" data-en="Certifications & Achievements" data-fa="گواهینامه‌ها و دستاوردها">Certifications & Achievements</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="cert-grid">
-                <div class="cert-item">
-                    <div class="cert-badge">🌐</div>
-                    <strong>CompTIA Network+</strong>
-                    <p data-en="International Networking Certification" data-fa="گواهینامه بین‌المللی شبکه">International Networking Certification</p>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-badge">📡</div>
-                    <strong>MTCNA</strong>
-                    <p data-en="MikroTik Certified Network Associate" data-fa="گواهی تخصصی پیکربندی روترهای MikroTik">MikroTik Certified Network Associate</p>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-badge">💻</div>
-                    <strong data-en="ICDL Certificate" data-fa="گواهینامه ICDL">ICDL Certificate</strong>
-                    <p data-en="Technical & Vocational Organization" data-fa="سازمان فنی و حرفه‌ای">Technical & Vocational Organization</p>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-badge">🧠</div>
-                    <strong data-en="Raven IQ Test" data-fa="تست هوش ریون">Raven IQ Test</strong>
-                    <p data-en="High Intelligence - IQ Score: 116" data-fa="هوش بالا - نمره IQ: ۱۱۶">High Intelligence - IQ Score: 116</p>
-                </div>
-                <div class="cert-item">
-                    <div class="cert-badge">❤️</div>
-                    <strong data-en="Bar-On Emotional Intelligence" data-fa="تست هوش هیجانی بار-آن">Bar-On Emotional Intelligence</strong>
-                    <p data-en="90% - Good" data-fa="۹۰٪ - خوب">90% - Good</p>
-                </div>
-            </div>
+      <li class="job">
+        <div class="job-head">
+          <h3><span lang="fa">تکنسین شبکه</span><span lang="en">Network Technician</span></h3>
+          <p class="when"><span lang="fa">مهر ۱۴۰۱ تا اکنون</span><span lang="en">Oct 2022 – Present</span></p>
         </div>
+        <p class="org-note">
+          <span lang="fa">خدمات ارتباطی امن و زیرساخت شبکه‌ی خصوصی</span><span lang="en">Secure communication services and private network infrastructure</span>
+        </p>
+        <ul lang="fa">
+          <li>مدیریت سرورها و راه‌اندازی تونل‌های امن شبکه‌ی خصوصی</li>
+          <li>بهینه‌سازی سیاست‌های مسیریابی برای بهبود کارایی شبکه</li>
+        </ul>
+        <ul lang="en">
+          <li>Managed servers and deployed secure private network tunnels</li>
+          <li>Optimized routing policies to improve network performance</li>
+        </ul>
+      </li>
 
-        <!-- Languages -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🗣</div>
-                <h2 class="section-title" data-en="Languages" data-fa="زبان‌ها">Languages</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="languages-grid">
-                <div class="language-card">
-                    <div class="language-name" data-en="Azeri" data-fa="آذری">Azeri</div>
-                    <div class="language-level" data-en="Native or Bilingual Proficiency" data-fa="بومی">Native or Bilingual Proficiency</div>
-                </div>
-                <div class="language-card">
-                    <div class="language-name" data-en="Persian" data-fa="فارسی">Persian</div>
-                    <div class="language-level" data-en="Native or Bilingual Proficiency" data-fa="بومی">Native or Bilingual Proficiency</div>
-                </div>
-                <div class="language-card">
-                    <div class="language-name" data-en="English" data-fa="انگلیسی">English</div>
-                    <div class="language-level" data-en="Medium Working Proficiency" data-fa="سطح متوسط کاری">Medium Working Proficiency</div>
-                </div>
-            </div>
+      <li class="job">
+        <div class="job-head">
+          <h3><span lang="fa">بنیان‌گذار و مدیر</span><span lang="en">Founder &amp; Manager</span></h3>
+          <p class="when"><span lang="fa">خرداد ۱۳۹۶ تا اکنون</span><span lang="en">Jun 2017 – Present</span></p>
         </div>
+        <p class="org">NitroPanel</p>
+        <p class="org-note">
+          <span lang="fa">پلتفرم آنلاین فروش خدمات اینستاگرام و تلگرام</span><span lang="en">Online platform selling Instagram and Telegram services</span>
+        </p>
+        <ul lang="fa">
+          <li>توسعه و مدیریت ربات‌های خودکار تلگرام و کاهش ۷۰٪ کارهای دستی</li>
+          <li>ساخت وب‌سایت مقیاس‌پذیر با PHP و WordPress</li>
+          <li>افزایش ۳۰٪ نرخ تعامل کاربران با اتوماسیون ربات‌ها</li>
+          <li>کاهش ۵۰٪ زمان پاسخ‌گویی به مشتریان</li>
+        </ul>
+        <ul lang="en">
+          <li>Built and ran automated Telegram bots, cutting manual work by 70%</li>
+          <li>Built a scalable website with PHP and WordPress</li>
+          <li>Raised user engagement by 30% through bot automation</li>
+          <li>Cut customer response time by 50%</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
 
-        <!-- Interests -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">✨</div>
-                <h2 class="section-title" data-en="Interests" data-fa="علاقه‌مندی‌ها">Interests</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="interests-row">
-                <div class="interest-tag" data-en="Artificial Intelligence & Machine Learning" data-fa="هوش مصنوعی و یادگیری ماشین">Artificial Intelligence & Machine Learning</div>
-                <div class="interest-tag" data-en="Cybersecurity" data-fa="امنیت سایبری">Cybersecurity</div>
-                <div class="interest-tag" data-en="Open Source Contribution" data-fa="مشارکت متن‌باز">Open Source Contribution</div>
-                <div class="interest-tag" data-en="Financial Markets & Trading" data-fa="بازارهای مالی و معامله‌گری">Financial Markets & Trading</div>
-                <div class="interest-tag" data-en="Gaming & Technology" data-fa="بازی و فناوری">Gaming & Technology</div>
-            </div>
-        </div>
-    </main>
+  <!-- Projects + Education -->
+  <div class="two-col">
+    <section class="projects" aria-labelledby="h-proj">
+      <h2 id="h-proj"><span lang="fa">پروژه‌های پژوهشی</span><span lang="en">Research projects</span></h2>
+      <article class="entry">
+        <h3><span lang="fa">توسعه‌ی احراز هویت برای Prometheus</span><span lang="en">Developing authentication for Prometheus</span></h3>
+        <p class="when"><span lang="fa">شهریور تا آبان ۱۴۰۴</span><span lang="en">Sep – Nov 2025</span></p>
+        <p><span lang="fa">پروژه‌ی مرکز تحقیقات دکتر اردشیر حسین‌پور، از طرف معاونت پژوهش، علم و فناوری</span><span lang="en">Dr. Ardeshir Hosseinpour Research Center, on behalf of the Vice-Presidency for Research, Science and Technology</span></p>
+      </article>
+      <article class="entry">
+        <h3><span lang="fa">امکان‌سنجی احراز هویت در Prometheus</span><span lang="en">Feasibility study for Prometheus authentication</span></h3>
+        <p class="when"><span lang="fa">اردیبهشت تا تیر ۱۴۰۴</span><span lang="en">May – Jul 2025</span></p>
+        <p><span lang="fa">پروژه‌ی مرکز تحقیقات دکتر اردشیر حسین‌پور، از طرف معاونت پژوهش، علم و فناوری</span><span lang="en">Dr. Ardeshir Hosseinpour Research Center, on behalf of the Vice-Presidency for Research, Science and Technology</span></p>
+      </article>
+    </section>
 
-    <footer class="footer">
-        <span data-en="Designed with" data-fa="طراحی شده با">Designed with</span> ❤️ <span data-en="by Ali Bafandeh" data-fa="توسط علی بافنده">by Ali Bafandeh</span>
-    </footer>
+    <section class="education" aria-labelledby="h-edu">
+      <h2 id="h-edu"><span lang="fa">تحصیلات</span><span lang="en">Education</span></h2>
+      <article class="entry">
+        <h3><span lang="fa">کارشناسی ارشد IT و شبکه‌های کامپیوتری</span><span lang="en">M.Sc. in IT &amp; Computer Networks</span></h3>
+        <p class="when"><span lang="fa">دانشگاه آزاد اسلامی تبریز، ۱۴۰۲ تا ۱۴۰۴</span><span lang="en">Islamic Azad University, Tabriz, 2023 – 2025</span></p>
+        <p><span lang="fa">معدل ۱۶٫۸۵. پایان‌نامه: بهبود دقت تشخیص بیماری قلبی با یادگیری ماشین و مهندسی ویژگی</span><span lang="en">GPA 16.85/20. Thesis: Improving heart-disease diagnosis accuracy with machine learning and feature engineering</span></p>
+      </article>
+      <article class="entry">
+        <h3><span lang="fa">کارشناسی مهندسی کامپیوتر</span><span lang="en">B.Sc. in Computer Engineering</span></h3>
+        <p class="when"><span lang="fa">دانشگاه آزاد اسلامی اسکو، ۱۳۹۸ تا ۱۴۰۱</span><span lang="en">Islamic Azad University, Osku, 2019 – 2023</span></p>
+        <p><span lang="fa">معدل ۱۷٫۶۷</span><span lang="en">GPA 17.67/20</span></p>
+      </article>
+    </section>
+  </div>
 
-    <script>
-        let currentLang = 'en';
+  <!-- Skills -->
+  <section class="skills" aria-labelledby="h-skills">
+    <h2 id="h-skills"><span lang="fa">مهارت‌ها</span><span lang="en">Skills</span></h2>
+    <div class="skill-groups">
+      <div class="sg">
+        <h3><span lang="fa">شبکه و امنیت</span><span lang="en">Networking &amp; security</span></h3>
+        <ul class="tags-list" dir="ltr"><li>Routing</li><li>Firewall</li><li>MikroTik</li><li>VPN / Tunneling</li><li>Cybersecurity</li></ul>
+      </div>
+      <div class="sg">
+        <h3><span lang="fa">سرور و زیرساخت</span><span lang="en">Servers &amp; infrastructure</span></h3>
+        <ul class="tags-list" dir="ltr"><li>Linux</li><li>Ubuntu</li><li>Docker</li><li>KVM</li><li>VMware</li><li>DevOps</li></ul>
+      </div>
+      <div class="sg">
+        <h3><span lang="fa">برنامه‌نویسی</span><span lang="en">Development</span></h3>
+        <ul class="tags-list" dir="ltr"><li>PHP</li><li>Python</li><li>MySQL</li><li>RESTful APIs</li><li>WordPress</li><li>Telegram Bots</li></ul>
+      </div>
+      <div class="sg">
+        <h3><span lang="fa">سامانه‌های سازمانی</span><span lang="en">Business systems</span></h3>
+        <ul class="tags-list" lang="fa"><li>نرم‌افزار مالی کارآمد سیستم</li><li>سامانه‌ی مؤدیان</li><li>سامانه‌ی جامع تجارت</li><li>سامانه‌ی جامع انبارها</li><li>GIS ناوگان</li></ul>
+        <ul class="tags-list" lang="en"><li>Karamad System ERP</li><li>Moadian e-invoicing</li><li>Comprehensive Trade System</li><li>Warehouse System</li><li>Fleet GIS</li></ul>
+      </div>
+    </div>
+  </section>
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'fa' : 'en';
+  <!-- Certificates, languages, interests -->
+  <div class="three-col">
+    <section aria-labelledby="h-cert">
+      <h2 id="h-cert"><span lang="fa">گواهی‌نامه‌ها</span><span lang="en">Certifications</span></h2>
+      <ul class="plain">
+        <li><strong>CompTIA Network+</strong><span lang="fa">گواهی‌نامه‌ی بین‌المللی شبکه</span><span lang="en">International networking certification</span></li>
+        <li><strong>MTCNA</strong><span lang="fa">کارشناس پیکربندی روترهای MikroTik</span><span lang="en">MikroTik Certified Network Associate</span></li>
+        <li><strong>ICDL</strong><span lang="fa">سازمان آموزش فنی و حرفه‌ای</span><span lang="en">Technical &amp; Vocational Training Organization</span></li>
+      </ul>
+    </section>
+    <section aria-labelledby="h-lang">
+      <h2 id="h-lang"><span lang="fa">زبان‌ها</span><span lang="en">Languages</span></h2>
+      <ul class="plain langs">
+        <li><strong><span lang="fa">آذری</span><span lang="en">Azeri</span></strong><span lang="fa">بومی</span><span lang="en">Native</span><i style="--v:1"></i></li>
+        <li><strong><span lang="fa">فارسی</span><span lang="en">Persian</span></strong><span lang="fa">بومی</span><span lang="en">Native</span><i style="--v:1"></i></li>
+        <li><strong><span lang="fa">انگلیسی</span><span lang="en">English</span></strong><span lang="fa">متوسط، در حد کاری</span><span lang="en">Working proficiency</span><i style="--v:.55"></i></li>
+      </ul>
+    </section>
+    <section aria-labelledby="h-int">
+      <h2 id="h-int"><span lang="fa">علاقه‌مندی‌ها</span><span lang="en">Interests</span></h2>
+      <ul class="plain interests">
+        <li><span lang="fa">هوش مصنوعی و یادگیری ماشین</span><span lang="en">AI &amp; machine learning</span></li>
+        <li><span lang="fa">امنیت سایبری</span><span lang="en">Cybersecurity</span></li>
+        <li><span lang="fa">مشارکت در پروژه‌های متن‌باز</span><span lang="en">Open-source contribution</span></li>
+        <li><span lang="fa">بازارهای مالی</span><span lang="en">Financial markets</span></li>
+        <li><span lang="fa">بازی و فناوری</span><span lang="en">Gaming &amp; technology</span></li>
+      </ul>
+    </section>
+  </div>
+</main>
 
-            if (currentLang === 'fa') {
-                document.body.classList.add('rtl');
-                document.documentElement.lang = 'fa';
-                document.querySelector('.lang-toggle .en').style.display = 'none';
-                document.querySelector('.lang-toggle .fa').style.display = 'inline';
-            } else {
-                document.body.classList.remove('rtl');
-                document.documentElement.lang = 'en';
-                document.querySelector('.lang-toggle .en').style.display = 'inline';
-                document.querySelector('.lang-toggle .fa').style.display = 'none';
-            }
+<footer class="site-footer">
+  <p>
+    <span lang="fa">علی بافنده</span><span lang="en">Ali Bafandeh</span>
+    <a href="mailto:alibh0210@gmail.com" dir="ltr">alibh0210@gmail.com</a>
+  </p>
+  <button type="button" class="btn-print" data-print>
+    <span lang="fa">ذخیره به‌صورت PDF</span><span lang="en">Save as PDF</span>
+  </button>
+</footer>
 
-            document.querySelectorAll('[data-en][data-fa]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${currentLang}`);
-            });
-        }
+<dialog class="viewer" id="viewer" aria-label="Image viewer">
+  <button type="button" class="viewer-close" data-close>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span class="sr" lang="fa">بستن</span><span class="sr" lang="en">Close</span>
+  </button>
+  <img alt="">
+</dialog>
 
-        // Intersection Observer for scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('.section').forEach(s => observer.observe(s));
-
-        // Keyboard support for lang toggle
-        document.querySelector('.lang-toggle').addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleLanguage();
-            }
-        });
-    </script>
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
