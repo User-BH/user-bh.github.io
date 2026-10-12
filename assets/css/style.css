@@ -317,6 +317,16 @@ html[lang="en"] .job ul li::before { top: .75em; }
 .entry .when { margin-top: 2px; }
 .entry p:last-child { margin-top: 6px; color: var(--ink); font-size: .95rem; }
 
+/* Justified body text (paragraphs and bullets; headings stay start-aligned) */
+.lead, .award-desc, .job ul li, .entry p:last-child {
+  text-align: justify;
+  text-justify: inter-word;
+}
+/* English: hyphenate so justified lines don't open wide gaps */
+html[lang="en"] .lead, html[lang="en"] .award-desc, html[lang="en"] .job ul li, html[lang="en"] .entry p:last-child {
+  -webkit-hyphens: auto; hyphens: auto;
+}
+
 /* ---------- Skills ---------- */
 .skill-groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--olive-deep); }
 .sg { padding: 18px 0 18px; padding-inline-end: 18px; }
